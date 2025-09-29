@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { FaGraduationCap, FaTrophy, FaCode, FaShieldAlt, FaRocket, FaAward, FaLaptop, FaGamepad } from 'react-icons/fa';
+import { FaGraduationCap, FaTrophy, FaCode, FaShieldAlt, FaRocket, FaAward, FaLaptop } from 'react-icons/fa';
 import './LifeCycle.css';
 
 const LifeCycle = () => {

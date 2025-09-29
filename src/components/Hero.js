@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { FaCode, FaTerminal, FaKeyboard } from 'react-icons/fa';
+import { FaCode, FaTerminal } from 'react-icons/fa';
 import './Hero.css';
 
 const Hero = () => {
