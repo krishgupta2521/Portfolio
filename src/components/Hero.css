@@ -51,8 +51,8 @@
 }
 
 .hero-content {
-  position: left;
-  z-index: 1;
+  position: relative;
+  z-index: 2;
   max-width: 500px;
   margin-left: 20px;
 }
