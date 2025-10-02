@@ -3,26 +3,27 @@ import { motion } from 'framer-motion';
 import { FaCode, FaTerminal } from 'react-icons/fa';
 import './Hero.css';
 
+// Define texts array outside the component so it's not recreated on each render
+const TYPING_TEXTS = [
+  "Full Stack Developer",
+  "React Specialist", 
+  "Node.js Expert",
+  "Tech Innovator",
+  "Code Hacker"
+];
+
 const Hero = () => {
   const [currentText, setCurrentText] = useState('');
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isDeleting, setIsDeleting] = useState(false);
-
-  const texts = [
-    'Full Stack Developer',
-    'Cybersecurity Enthusiast',
-    'Problem Solver',
-    'Tech Innovator',
-    'Code Hacker'
-  ];
 
   useEffect(() => {
     const typeSpeed = isDeleting ? 50 : 100;
     const pauseTime = 2000;
 
     const timer = setTimeout(() => {
-      if (!isDeleting && currentIndex < texts.length) {
-        const currentTextToType = texts[currentIndex];
+      if (!isDeleting && currentIndex < TYPING_TEXTS.length) {
+        const currentTextToType = TYPING_TEXTS[currentIndex];
         if (currentText.length < currentTextToType.length) {
           setCurrentText(currentTextToType.slice(0, currentText.length + 1));
         } else {
@@ -33,13 +34,13 @@ const Hero = () => {
           setCurrentText(currentText.slice(0, -1));
         } else {
           setIsDeleting(false);
-          setCurrentIndex((prev) => (prev + 1) % texts.length);
+          setCurrentIndex((prev) => (prev + 1) % TYPING_TEXTS.length);
         }
       }
     }, typeSpeed);
 
     return () => clearTimeout(timer);
-  }, [currentText, currentIndex, isDeleting, texts]);
+  }, [currentText, currentIndex, isDeleting]); // Since TYPING_TEXTS is constant, it doesn't need to be in deps
 
   const containerVariants = {
     hidden: { opacity: 0 },
